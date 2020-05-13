@@ -38,7 +38,8 @@ public enum UnicomResponseEnums {
     LOGIN_026("026", "没有获取到用户"),
     LOGIN_027("027", "请确认密码"),
     LOGIN_028("028", ""),
-    LOGIN_029("029", "用户已经存在")
+    LOGIN_029("029", "用户已经存在"),
+    LOGIN_030("030", "token失效"),
     ;
 
     @Setter

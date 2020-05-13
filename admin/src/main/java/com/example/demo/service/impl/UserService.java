@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.UUID;
 
 @Service
 public class UserService implements IUserService {
@@ -23,11 +24,16 @@ public class UserService implements IUserService {
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
         userQueryWrapper.eq("username", username);
         userQueryWrapper.eq("password", password);
-        Integer integer = userMapper.selectCount(userQueryWrapper);
-        if (integer == 0) {
+        User user = userMapper.selectOne(userQueryWrapper);
+        if (user == null) {
             throw new UnicomRuntimeException(UnicomResponseEnums.LOGIN_026);
         }else{
-            return "登录成功";
+            // 返回token
+            String token = user.getId().toString() +"_"+ UUID.randomUUID();
+            // 模拟redis保存token
+            user.setToken(token);
+            userMapper.updateById(user);
+            return token;
         }
     }
 

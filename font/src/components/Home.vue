@@ -75,7 +75,7 @@
       logout () {
         window.sessionStorage.clear()
         this.$router.push('/')
-        return this.$message.error("推出成功")
+        return this.$message.error("退出成功")
       },
       async getMenuList (){
         const { data: res } = await this.$http.get('/menu/list')

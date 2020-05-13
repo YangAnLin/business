@@ -22,8 +22,8 @@ public class UserController {
     @PostMapping("/login")
     @ApiOperation("登录")
     public ResponseBean<String> login(@RequestBody Login body){
-        String login = userService.login(body.getUsername(), body.getPassword());
-        return new ResponseBean<>(true,login);
+        String token = userService.login(body.getUsername(), body.getPassword());
+        return new ResponseBean<>(true,token);
     }
 
     @PostMapping("/register")

@@ -28,20 +28,26 @@ import 'nprogress/nprogress.css'
 
 //==========================拦截器和进度条====================================================
 axios.interceptors.request.use(config => {
-  NProgress.start();  // 配置进度条
-  // config.headers.Authorization =  window.sessionStorage.getItem("token")
-  return config
+    NProgress.start();  // 配置进度条
+    config.headers.Authorization = window.sessionStorage.getItem("token")
+    return config
 })
 axios.interceptors.response.use(config => {
-  NProgress.done(); // 配置进度条
-  return config
+        NProgress.done(); // 配置进度条
+
+        console.log("token这里",config.data.code);
+        if (config.data.code === "030") {
+          router.push('/')
+        }
+
+        return config
 })
 
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

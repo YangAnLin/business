@@ -85,7 +85,7 @@
           }else{
             this.$message.success("登录成功")
             // token 存入到session中
-            // window.sessionStorage.setItem("token",res.data)
+            window.sessionStorage.setItem("token",res.data)
             // 跳转页面
             this.$router.push("/home")
           }
