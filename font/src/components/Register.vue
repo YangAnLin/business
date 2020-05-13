@@ -15,7 +15,7 @@
                 </el-form-item>
 
                 <!--确认密码-->
-                <el-form-item prop="password" label="确认密码">
+                <el-form-item prop="confirmPassword" label="确认密码">
                     <el-input v-model="registerForm.confirmPassword" type="password"></el-input>
                 </el-form-item>
 
@@ -39,7 +39,7 @@
                 registerForm: {
                     username: '',
                     password: '',
-                    confirmPassword:""
+                    confirmPassword:''
                 },
                 // 表单验证规则
                 registerFormRules: {
@@ -57,6 +57,19 @@
                         }
                     ],
                     password: [
+                        {
+                            required: true,
+                            message: '请输入密码',
+                            trigger: 'blur'
+                        },
+                        {
+                            min: 3,
+                            max: 10,
+                            message: '长度在 3 到 10 个字符',
+                            trigger: 'blur'
+                        }
+                    ],
+                    confirmPassword:[
                         {
                             required: true,
                             message: '请输入密码',
