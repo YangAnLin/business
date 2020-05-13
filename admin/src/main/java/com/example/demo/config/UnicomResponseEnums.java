@@ -35,7 +35,11 @@ public enum UnicomResponseEnums {
     NOLOGIN("023", "未登陆"),
     ILLEGAL_ARGUMENT("024", "参数不合法"),
     ERROR_IDCODE("025", "验证码不正确"),
-    LOGIN_026("026", "没有获取到用户");
+    LOGIN_026("026", "没有获取到用户"),
+    LOGIN_027("027", "请确认密码"),
+    LOGIN_028("028", ""),
+    LOGIN_029("029", "用户已经存在")
+    ;
 
     @Setter
     @Getter

@@ -16,9 +16,9 @@
 
         <!--按钮-->
         <el-form-item class="btns">
-          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="success" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
-          <el-button type="info" @click="register">注册</el-button>
+          <el-button type="warning" @click="register">注册</el-button>
         </el-form-item>
 
       </el-form>
@@ -32,8 +32,8 @@
     data () {
       return {
         loginForm: {
-          username: 'admin',
-          password: '123456'
+          username: '',
+          password: ''
         },
         // 表单验证规则
         loginFormRules: {
@@ -79,15 +79,13 @@
           if (!valid) return
 
           const { data: res } = await this.$http.post('/user/login', this.loginForm)
-          console.log(res)
-          console.log(res.success === false)
 
           if (res.success === false) {
             return this.$message.error(res.msg)
           }else{
-            this.$message.success(res.meta.msg)
+            this.$message.success("登录成功")
             // token 存入到session中
-            window.sessionStorage.setItem("token",res.data)
+            // window.sessionStorage.setItem("token",res.data)
             // 跳转页面
             this.$router.push("/home")
           }
@@ -95,7 +93,7 @@
       },
       // 注册
       register(){
-
+        this.$router.push("/register")
       }
     }
 

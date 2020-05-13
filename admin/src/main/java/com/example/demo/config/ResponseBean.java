@@ -19,11 +19,11 @@ public class ResponseBean <T>{
     }
 
 
-    public ResponseBean(boolean success, T data, String errCode, String msg) {
+    public ResponseBean(boolean success, T data, String code, String msg) {
         super();
         this.success = success;
         this.data = data;
-        this.code = errCode;
+        this.code = code;
         this.msg = msg;
     }
 
