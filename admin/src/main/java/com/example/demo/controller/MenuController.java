@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @RequestMapping("/menu")
@@ -23,8 +24,7 @@ public class MenuController {
 
     @GetMapping("/list")
     @ApiOperation("获取菜单列表")
-    public ResponseBean<MenuList> list(){
-        MenuList menuList = menuService.list(0);
-        return new ResponseBean<>(true,menuList);
+    public ResponseBean<List<MenuList>> list(){
+        return new ResponseBean<>(true,menuService.list(0));
     }
 }

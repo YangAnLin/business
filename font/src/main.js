@@ -17,7 +17,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 // 配置请求的根路径
 axios.defaults.baseURL = process.env.VUE_APP_PATH
-
 /* 配置成全局的 */
 Vue.prototype.$http = axios
 
@@ -33,7 +32,6 @@ axios.interceptors.request.use(config => {
   // config.headers.Authorization =  window.sessionStorage.getItem("token")
   return config
 })
-
 axios.interceptors.response.use(config => {
   NProgress.done(); // 配置进度条
   return config

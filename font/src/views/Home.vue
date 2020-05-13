@@ -28,7 +28,7 @@
 
             <template slot="title">
               <i :class="iconsList[item.id]"></i>
-              <span>{{item.authName}}</span>
+              <span>{{item.menuName}}</span>
             </template>
 
             <!-- 二级菜单 -->
@@ -36,7 +36,7 @@
               <!--  @click="saveNavState('/'+subItem.path+'')">-->
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>{{subItem.authName}}</span>
+                <span>{{subItem.menuName}}</span>
               </template>
             </el-menu-item>
           </el-submenu>
@@ -78,10 +78,10 @@
         this.$router.push('/login')
       },
       async getMenuList (){
-        const { data: res } = await this.$http.get('menus')
+        const { data: res } = await this.$http.get('/menu/list')
         console.log(res)
-        if (res.meta.status !== 200) {
-          return this.$message.error(res.meta.msg)
+        if (res.success === false) {
+          return this.$message.error(res.msg)
         }else{
           this.menuList = res.data
         }

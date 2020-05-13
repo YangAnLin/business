@@ -12,6 +12,6 @@ import java.util.List;
 @Mapper
 public interface MenuMapper extends BaseMapper<Menu> {
 
-    @Select("select * from menu where parentMenuId = #{parentMenuId}")
+    @Select("select * from menu where parent_menu_id = #{parentMenuId}")
     List<MenuList> selectListByParentMenuId(@Param("parentMenuId") int parentMenuId);
 }

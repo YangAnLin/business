@@ -2,9 +2,16 @@ package com.example.demo.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-//@EqualsAndHashCode(callSuper = false)
 public class MenuList {
 
-    private MenuList children;
+    private Integer id;
+
+    private String menuName;
+
+    private Integer parentMenuId;
+
+    private List<MenuList> children;
 }
