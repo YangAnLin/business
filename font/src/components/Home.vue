@@ -4,7 +4,6 @@
     <!-- 头部 -->
     <el-header>
       <div>
-<!--        <img src="../assets/heima.png" alt="">-->
         <span>电商后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
@@ -75,7 +74,8 @@
     methods: {
       logout () {
         window.sessionStorage.clear()
-        this.$router.push('/login')
+        this.$router.push('/')
+        return this.$message.error("推出成功")
       },
       async getMenuList (){
         const { data: res } = await this.$http.get('/menu/list')
