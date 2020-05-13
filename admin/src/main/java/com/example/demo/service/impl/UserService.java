@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.demo.config.UnicomResponseEnums;
 import com.example.demo.config.UnicomRuntimeException;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
@@ -21,8 +22,8 @@ public class UserService implements IUserService {
         userQueryWrapper.eq("username", username);
         userQueryWrapper.eq("password", password);
         Integer integer = userMapper.selectCount(userQueryWrapper);
-        if (integer != 0) {
-            throw new UnicomRuntimeException("没有获取到用户");
+        if (integer == 0) {
+            throw new UnicomRuntimeException(UnicomResponseEnums.LOGIN_026);
         }else{
             return "登录成功";
         }

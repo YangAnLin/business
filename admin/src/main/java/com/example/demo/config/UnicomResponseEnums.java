@@ -34,7 +34,8 @@ public enum UnicomResponseEnums {
     FILEUPLOAD_SUCCESS("022", "上传成功"),
     NOLOGIN("023", "未登陆"),
     ILLEGAL_ARGUMENT("024", "参数不合法"),
-    ERROR_IDCODE("025", "验证码不正确");
+    ERROR_IDCODE("025", "验证码不正确"),
+    LOGIN_026("026", "没有获取到用户");
 
     @Setter
     @Getter

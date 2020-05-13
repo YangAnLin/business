@@ -22,7 +22,7 @@
                  :router="true"
                  default-active="activePath">
           <!-- 高亮,貌似element已经弄好了-->
-          <!--                 default-active="activePath">-->
+          <!-- default-active="activePath">-->
           <!-- 一级菜单-->
           <el-submenu :index="item.id +''" v-for="item in menuList" :key="item.id">
 
@@ -33,7 +33,7 @@
 
             <!-- 二级菜单 -->
             <el-menu-item :index="'/'+subItem.path +''" v-for="subItem in item.children" :key="subItem.id" >
-              <!--                          @click="saveNavState('/'+subItem.path+'')">-->
+              <!--  @click="saveNavState('/'+subItem.path+'')">-->
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{subItem.authName}}</span>

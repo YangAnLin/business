@@ -23,8 +23,8 @@ public class MenuService implements IMenuService {
     public MenuList list(int i) {
         List<MenuList> menus = menuMapper.selectListByParentMenuId(i);
         menus.forEach(menu -> {
-            MenuList list = this.list(menu.getId());
-            menu.setChildren(list);
+//            MenuList list = this.list(menu.getId());
+//            menu.setChildren(list);
         });
         return null;
     }

@@ -67,7 +67,6 @@ public class SpringExceptionHandle {
      */
     @ExceptionHandler(value={UnicomRuntimeException.class})
     @ResponseBody
-    @ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
     public <T> ResponseBean<T> sendError(UnicomRuntimeException exception, HttpServletRequest request){
         String requestURI = request.getRequestURI();
         log.error("occurs error when execute url ={} ,message {}",requestURI,exception.getMsg());

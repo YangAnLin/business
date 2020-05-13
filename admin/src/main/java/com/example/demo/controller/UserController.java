@@ -3,12 +3,10 @@ package com.example.demo.controller;
 
 import com.example.demo.config.ResponseBean;
 import com.example.demo.service.impl.UserService;
+import com.example.demo.vo.Login;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -22,9 +20,8 @@ public class UserController {
 
     @PostMapping("/login")
     @ApiOperation("登录")
-    public ResponseBean<String> login(@RequestParam("username") String username,
-                                      @RequestParam("password") String password){
-        String login = userService.login(username, password);
+    public ResponseBean<String> login(@RequestBody Login body){
+        String login = userService.login(body.getUsername(), body.getPassword());
         return new ResponseBean<>(true,login);
     }
 }

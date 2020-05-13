@@ -3,8 +3,7 @@
     <div class="login_box">
 
       <!--表单登录-->
-      <!-- TODO label-width  这个是什么意思-->
-      <el-form :model="loginForm" :rules="loginFormRules" ref="loginFromRef" label-width="80px" class="login_form">
+      <el-form :model="loginForm" :rules="loginFormRules" ref="loginFromRef" label-width="60px" class="login_form">
         <!--用户名-->
         <el-form-item prop="username" label="账号">
           <el-input v-model="loginForm.username" ></el-input>
@@ -19,6 +18,7 @@
         <el-form-item class="btns">
           <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
+          <el-button type="info" @click="register">注册</el-button>
         </el-form-item>
 
       </el-form>
@@ -67,33 +67,35 @@
       }
     },
     methods: {
-      // 重置
+      // 重置表单
       resetLoginForm () {
         this.$refs.loginFromRef.resetFields()
       },
+      // 登录
       login () {
-        // this.$refs.loginFromRef.validate(async valid => {
-        //   console.log(valid)
-        //
-        //   if (!valid) return
-        //
-        //   const { data: res } = await this.$http.post('login', this.loginForm)
-        //   console.log(res)
-        //
-        //   if (res.meta.status != 200) {
-        //     return this.$message.error(res.meta.msg)
-        //   }
-        //   this.$message.success(res.meta.msg)
-        //
-        //   // token 存入到session中
-        //   window.sessionStorage.setItem("token",res.data.token)
-        //
-        //   // 跳转页面
-        //   this.$router.push("/home")
-        //
-        // })
-          // 跳转页面
-          this.$router.push("/home")
+        this.$refs.loginFromRef.validate(async valid => {
+          console.log(valid)
+
+          if (!valid) return
+
+          const { data: res } = await this.$http.post('/user/login', this.loginForm)
+          console.log(res)
+          console.log(res.success === false)
+
+          if (res.success === false) {
+            return this.$message.error(res.msg)
+          }else{
+            this.$message.success(res.meta.msg)
+            // token 存入到session中
+            window.sessionStorage.setItem("token",res.data)
+            // 跳转页面
+            this.$router.push("/home")
+          }
+        })
+      },
+      // 注册
+      register(){
+
       }
     }
 
@@ -112,7 +114,7 @@
     width: 450px;
     height: 360px;
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: 10px;
     position: absolute;
     left: 50%;
     top: 50%;
