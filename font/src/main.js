@@ -16,7 +16,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 /* 请求数据框架 */
 import axios from 'axios'
 // 配置请求的根路径
-axios.defaults.baseURL = 'http://api.yanganlin.com/'
+
 /* 配置成全局的 */
 Vue.prototype.$http = axios
 
