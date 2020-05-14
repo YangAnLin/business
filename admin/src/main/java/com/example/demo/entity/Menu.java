@@ -8,6 +8,8 @@ public class Menu {
 
     private String menuName;
 
+    private String menuUrl;
+
     private Integer parentMenuId;
 
 }

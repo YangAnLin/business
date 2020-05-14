@@ -4,6 +4,7 @@ import Login from "../components/Login";
 import Home from "../components/Home";
 import Register from "../components/Register";
 import Welcome from "../components/Welcome";
+import GoodsList from "../components/goods/GoodsList";
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,7 @@ const routes = [
             // 首页
             { path: '/welcome', component: Welcome },
             // 商品列表
-
+            { path: '/goodslist', component: GoodsList },
             // 商品分类
         ]
     },

@@ -11,6 +11,8 @@ public class MenuList {
 
     private String menuName;
 
+    private String menuUrl;
+
     private Integer parentMenuId;
 
     private List<MenuList> children;

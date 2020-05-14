@@ -6,3 +6,7 @@ spring:
     url: jdbc:mysql://rm-bp1c43ud1g16w4m92125010.mysql.rds.aliyuncs.com:3306/business?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: anthony
     password: Lee07224820522
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

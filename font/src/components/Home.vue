@@ -31,13 +31,14 @@
             </template>
 
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/'+subItem.path +''" v-for="subItem in item.children" :key="subItem.id" >
+            <el-menu-item :index="'/'+subItem.menuUrl +''" v-for="subItem in item.children" :key="subItem.id" >
               <!--  @click="saveNavState('/'+subItem.path+'')">-->
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{subItem.menuName}}</span>
               </template>
             </el-menu-item>
+
           </el-submenu>
         </el-menu>
       </el-aside>
