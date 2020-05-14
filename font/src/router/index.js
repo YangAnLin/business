@@ -49,6 +49,11 @@ router.beforeEach((to,from,next)=>{
         return next()
     }
 
+    // 访问注册页面
+    if (to.path === '/register') {
+        return next()
+    }
+
     const tokenStr = window.sessionStorage.getItem('token')
     if (!tokenStr) {
         return next('/')

@@ -18,7 +18,7 @@
         <el-form-item class="btns">
           <el-button type="success" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
-          <el-button type="warning" @click="register">注册</el-button>
+          <el-button type="warning" @click="register">去注册</el-button>
         </el-form-item>
 
       </el-form>
